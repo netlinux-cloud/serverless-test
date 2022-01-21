@@ -32,8 +32,6 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
         if r.URL.Path == "/test" {
 
-            fmt.Fprintf(w, "TEST\n")
-
             out, err := exec.Command("ls", "-l").Output()
 
             if err != nil {
