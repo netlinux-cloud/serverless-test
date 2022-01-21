@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+    "log"
 	"strings"
 )
 
@@ -31,6 +32,14 @@ func main() {
         if r.URL.Path == "/test" {
 
             fmt.Fprintf(w, "TEST\n")
+
+            out, err := os.exec.Command("ls", "-l").Output()
+
+            if err != nil {
+                log.Fatal(err)
+            }
+
+            fmt.Println(string(out))
         } else {
 
             fmt.Fprintf(w, "REQUEST: |%s|\n", r.URL.Path)
