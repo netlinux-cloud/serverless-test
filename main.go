@@ -26,23 +26,19 @@ const startupMessage = `
 [0m
 `
 
-func main() \
-{
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) \
-        {
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
             fmt.Fprintf(w, "REQUEST: |%s|\n", r.URL.Path)
         }
     )
 
 	port := os.Getenv("PORT")
 
-	if port == "" \
-    {
+	if port == "" {
 		port = "80"
 	}
 
-	for _, line := range strings.Split(startupMessage, "\n") \
-    {
+	for _, line := range strings.Split(startupMessage, "\n") {
 		fmt.Println(line)
 	}
 
@@ -50,8 +46,7 @@ func main() \
 
 	err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
 
-	if err != nil \
-    {
+	if err != nil {
 		panic(err)
 	}
 }
