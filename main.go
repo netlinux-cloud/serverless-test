@@ -31,8 +31,7 @@ func main() {
         if r.URL.Path == "/test" {
 
             fmt.Fprintf(w, "TEST\n")
-        }
-        else {
+        } else {
 
             fmt.Fprintf(w, "REQUEST: |%s|\n", r.URL.Path)
         }
