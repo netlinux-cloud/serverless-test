@@ -28,7 +28,14 @@ const startupMessage = `
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        if r.URL.Path == "/test" {
+
+            fmt.Fprintf(w, "TEST\n")
+        }
+        else {
+
             fmt.Fprintf(w, "REQUEST: |%s|\n", r.URL.Path)
+        }
     })
 
 	port := os.Getenv("PORT")
