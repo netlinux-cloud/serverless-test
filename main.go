@@ -34,7 +34,7 @@ func main() {
 
             fmt.Fprintf(w, "TEST\n")
 
-            out, err := exec.Command("ls", "-l").Output()
+            out, err := exec.Command("./script.sh").Output()
 
             if err != nil {
                 log.Fatal(err)
