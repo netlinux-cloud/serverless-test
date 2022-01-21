@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"os/exec"
     "log"
 	"strings"
 )
@@ -33,7 +34,7 @@ func main() {
 
             fmt.Fprintf(w, "TEST\n")
 
-            out, err := os.exec.Command("ls", "-l").Output()
+            out, err := exec.Command("ls", "-l").Output()
 
             if err != nil {
                 log.Fatal(err)
