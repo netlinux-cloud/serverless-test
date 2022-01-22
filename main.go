@@ -34,10 +34,10 @@ func main() {
 
             fmt.Fprintf(w, "TEST\n")
 
-            out, err := exec.Command("/app/script.sh").Output()
+            out, err := exec.Command("/script.sh").Output()
 
             if err != nil {
-                log.Fatal(err)
+                fmt.Fprintf(w, string(err))
             }
 
             fmt.Fprintf(w, string(out))
