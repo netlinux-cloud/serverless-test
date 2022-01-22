@@ -37,7 +37,7 @@ func main() {
             out, err := exec.Command("/script.sh", r.URL.Path).Output()
 
             if err != nil {
-                fmt.Println(fmt.Sprint(err) + ": " + string(output))
+                fmt.Println(fmt.Sprint(err) + ": " + string(out))
             }
 
             fmt.Fprintf(w, string(out))
