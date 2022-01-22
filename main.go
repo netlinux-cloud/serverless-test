@@ -34,13 +34,9 @@ func main() {
 
             fmt.Fprintf(w, "TEST\n")
 
-            out, err := exec.Command("/script.sh").Output()
+            out, err := exec.Command("/script.sh").CombinedOutput()
 
-            if err != nil {
-                fmt.Fprintf(w, err)
-            }
-
-            fmt.Fprintf(w, string(out))
+            fmt.Fprintf(w, "out:%s err:%s", string(out), string(err))
         } else {
 
             fmt.Fprintf(w, "REQUEST: |%s|\n", r.URL.Path)
