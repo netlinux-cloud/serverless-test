@@ -1,5 +1,7 @@
 #!/bin/sh
 
+{
+
 date
 
 echo "TEST script"
@@ -14,3 +16,5 @@ gcc
 make
 
 exit 0
+
+} 2>@1
