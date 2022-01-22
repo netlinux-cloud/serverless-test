@@ -5,7 +5,6 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
-    "log"
 	"strings"
 )
 
