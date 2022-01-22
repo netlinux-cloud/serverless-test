@@ -34,7 +34,7 @@ rm -vf test
 
 echo '
 test: test.cpp
-    gcc test.cpp -o test
+	gcc test.cpp -o test
 ' >Makefile
 
 make
