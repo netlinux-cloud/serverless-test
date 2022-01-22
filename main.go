@@ -6,7 +6,6 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-    "log"
 )
 
 const startupMessage = `
@@ -30,22 +29,18 @@ const startupMessage = `
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        if r.URL.Path == "/test" {
-
-            fmt.Fprintf(w, "TEST\n")
-
-            out, err := exec.Command("/script.sh").Output()
-//            out := exec.Command("/script.sh").CombinedOutput()
-
-            if err != nil {
-                log.Fatal(err)
-            }
-
-//            fmt.Fprintf(w, "out:%s err:%s\n", string(out), string(err))
-            fmt.Fprintf(w, "out:%s\n", string(out))
-        } else {
+        if r.URL.Path == "/" {
 
             fmt.Fprintf(w, "REQUEST: |%s|\n", r.URL.Path)
+        } else {
+
+            out, err := exec.Command("/script.sh", r.URL.Path).Output()
+
+            if err != nil {
+                fmt.Println(fmt.Sprint(err) + ": " + string(output))
+            }
+
+            fmt.Fprintf(w, string(out))
         }
     })
 
