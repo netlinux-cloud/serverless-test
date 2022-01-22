@@ -33,7 +33,8 @@ func main() {
 
             fmt.Fprintf(w, "TEST\n")
 
-            out, err := exec.Command("/script.sh").CombinedOutput()
+//            out, err := exec.Command("/script.sh").CombinedOutput()
+            out := exec.Command("/script.sh").CombinedOutput()
 
 //            fmt.Fprintf(w, "out:%s err:%s\n", string(out), string(err))
             fmt.Fprintf(w, "out:%s\n", string(out))
